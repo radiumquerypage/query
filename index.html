@@ -9,10 +9,14 @@
         var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
             vars[key] = value;
         });
-        alert(vars);
+
         return vars;
     }
-    getUrlVars();
+    function makeQueryURL() {
+      var queryurl =  "https://www.google.com/search?q=" + getUrlVars()["first"]+"+"+getUrlVars()["last"] ;
+      window.location.href = queryurl;
+    }
+    makeQueryURL();
     </script>
   </head>
   <body>
