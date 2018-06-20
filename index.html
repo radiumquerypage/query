@@ -14,9 +14,16 @@
     }
 
     function makeQueryURL() {
-      var queryurl =  "https://www.google.com/search?q=" + getUrlVars()['address']+"+"+getUrlVars()['city']+"+"+getUrlVars()['state']+"+"+getUrlVars()['zip'] ;
-      window.location.href = queryurl;
+      if (window.location.href.indexOf('?') != -1) {
+
+      if(window.location.href.indexOf('?company=') != -1){
+         window.location.href = "https://www.google.com/search?q=" + getUrlVars()['company'];
+      }else{
+        var queryurl =  "https://www.google.com/search?q=" + getUrlVars()['address']+"+"+getUrlVars()['city']+"+"+getUrlVars()['state']+"+"+getUrlVars()['zip'] ;
+        window.location.href = queryurl;
+      }
     }
+  }
 
     makeQueryURL();
     </script>
