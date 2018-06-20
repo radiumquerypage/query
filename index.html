@@ -12,10 +12,12 @@
 
         return vars;
     }
+
     function makeQueryURL() {
-      var queryurl =  "https://www.google.com/search?q=" + getUrlVars()["first"]+"+"+getUrlVars()["last"] ;
+      var queryurl =  "https://www.google.com/search?q=" + getUrlVars()['address']+"+"+getUrlVars()['city']+"+"+getUrlVars()['state']+"+"+getUrlVars()['zip'] ;
       window.location.href = queryurl;
     }
+
     makeQueryURL();
     </script>
   </head>
