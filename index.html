@@ -14,13 +14,19 @@
     }
 
     function makeQueryURL() {
+
       if (window.location.href.indexOf('?') != -1) {
 
+
+        var queryurl = ((window.location.href.indexOf('?map=') != -1 ||  window.location.href.indexOf('&map=') != -1) && getUrlVars()['map'] == 1) ? "https://www.google.com/maps/search/?api=1&query=" : "https://www.google.com/search?q=";
+
       if(window.location.href.indexOf('?company=') != -1){
-         window.location.href = "https://www.google.com/search?q=" + getUrlVars()['company'];
+        queryurl += getUrlVars()['company'];
+         window.location.href = queryurl;
       }else{
-        var queryurl =  "https://www.google.com/search?q=" + getUrlVars()['address']+"+"+getUrlVars()['city']+"+"+getUrlVars()['state']+"+"+getUrlVars()['zip'] ;
-        window.location.href = queryurl;
+
+          queryurl += getUrlVars()['address']+"+"+getUrlVars()['city']+"+"+getUrlVars()['state']+"+"+getUrlVars()['zip'] ;
+          window.location.href = queryurl;
       }
     }
   }
